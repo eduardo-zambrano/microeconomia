@@ -5,3 +5,9 @@ Estas notas acompañan a la asignatura de [Microeconomía Intermedia](https://cv
 Su propósito es que tengas a mano, resueltos de principio a fin, los cálculos que aparecen una y otra vez en la asignatura. Cada capítulo toma ejemplos concretos y los desarrolla paso a paso para que puedas seguir la mecánica con lápiz y papel y comprobar tus propios resultados.
 
 Las notas se centran en el *cómo* y no en el *porqué*: la intuición económica y la interpretación de los resultados se trabajan en clase y en el manual. Lo que encontrarás aquí son las cuentas.
+
+## Uso de inteligencia artificial {.unnumbered}
+
+Estas notas se han elaborado con la ayuda de Claude Code (versión 2.1.296), el agente de programación de Anthropic, con el modelo Claude Opus 5.5 (`claude-opus-5-5`), en octubre de 2026. Bajo mi dirección, la IA redactó el texto, realizó las derivaciones, escribió el código que genera los gráficos y construyó este sitio web. Yo elegí los ejemplos y los valores de los parámetros, especifiqué el contenido y la estructura de cada capítulo y revisé el material.
+
+— Eduardo Zambrano

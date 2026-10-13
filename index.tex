@@ -1,0 +1,590 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{report}
+
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[]{TeX Gyre Pagella}
+    \setsansfont[]{TeX Gyre Heros}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+\AtBeginDocument{\renewcommand{\chaptername}{Capítulo}\renewcommand{\figurename}{Figura}}
+\titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.75em}
+\titlespacing*{\subsection}{0pt}{1.25em}{0.5em}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Microeconomía Intermedia},
+  pdfauthor={Eduardo Zambrano},
+  colorlinks=true,
+  linkcolor={ForestGreen},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={ForestGreen},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Microeconomía Intermedia}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Paso a paso}
+\author{Eduardo Zambrano}
+\date{2026-10-13}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Tabla de Contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\setstretch{1.15}
+\bookmarksetup{startatroot}
+
+\chapter*{Preámbulo}\label{preuxe1mbulo}
+\addcontentsline{toc}{chapter}{Preámbulo}
+
+\markboth{Preámbulo}{Preámbulo}
+
+Estas notas acompañan a la asignatura de
+\href{https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=22014&scaca=2026-27\#}{Microeconomía
+Intermedia} de la \href{https://www.ua.es/}{Universidad de Alicante}.
+
+Su propósito es que tengas a mano, resueltos de principio a fin, los
+cálculos que aparecen una y otra vez en la asignatura. Cada capítulo
+toma ejemplos concretos y los desarrolla paso a paso para que puedas
+seguir la mecánica con lápiz y papel y comprobar tus propios resultados.
+
+Las notas se centran en el \emph{cómo} y no en el \emph{porqué}: la
+intuición económica y la interpretación de los resultados se trabajan en
+clase y en el manual. Lo que encontrarás aquí son las cuentas.
+
+\section*{Uso de inteligencia
+artificial}\label{uso-de-inteligencia-artificial}
+\addcontentsline{toc}{section}{Uso de inteligencia artificial}
+
+\markright{Uso de inteligencia artificial}
+
+Estas notas se han elaborado con la ayuda de Claude Code (versión
+2.1.296), el agente de programación de Anthropic, con el modelo Claude
+Opus 5.5 (\texttt{claude-opus-5-5}), en octubre de 2026. Bajo mi
+dirección, la IA redactó el texto, realizó las derivaciones, escribió el
+código que genera los gráficos y construyó este sitio web. Yo elegí los
+ejemplos y los valores de los parámetros, especifiqué el contenido y la
+estructura de cada capítulo y revisé el material.
+
+--- Eduardo Zambrano
+
+\bookmarksetup{startatroot}
+
+\chapter{Paso a paso: funciones de costes a corto y a largo
+plazo}\label{paso-a-paso-funciones-de-costes-a-corto-y-a-largo-plazo}
+
+\section{Datos comunes}\label{datos-comunes}
+
+Una empresa produce \(q\) unidades de producto con trabajo, \(L\), y
+capital, \(K\):
+
+\[q = f(L, K)\]
+
+El precio del trabajo es \(w\) y el precio del capital es \(r\):
+
+\[w = 4 \qquad\qquad r = 1\]
+
+El coste de producir con \((L, K)\) es:
+
+\[CT = wL + rK\]
+
+A largo plazo (\(lp\)) la empresa elige \(L\) y \(K\). A corto plazo
+(\(cp\)) el capital está fijo en \(\bar K\) y la empresa solo elige
+\(L\):
+
+\[\bar K = 8\]
+
+Tres tecnologías:
+
+\[q = L^{1/3}K^{2/3} \qquad\quad q = \tfrac13 L + \tfrac23 K \qquad\quad q = \min\left\{\tfrac13 L,\ \tfrac23 K\right\}\]
+
+\section{\texorpdfstring{Cobb-Douglas:
+\(q = L^{1/3}K^{2/3}\)}{Cobb-Douglas: q = L\^{}\{1/3\}K\^{}\{2/3\}}}\label{cobb-douglas-q-l13k23}
+
+\subsection{Corto plazo: demanda condicionada de
+trabajo}\label{corto-plazo-demanda-condicionada-de-trabajo}
+
+Con \(\bar K = 8\):
+
+\[\bar K^{2/3} = 8^{2/3} = 4\]
+
+Sustituyendo en la función de producción:
+
+\[q = L^{1/3}\,\bar K^{2/3} = 4\,L^{1/3}\]
+
+Despejando \(L\):
+
+\[L^{1/3} = \frac{q}{4} \;\;\Longrightarrow\;\; L(q) = \frac{q^3}{64}\]
+
+\subsection{Corto plazo: función de
+costes}\label{corto-plazo-funciuxf3n-de-costes}
+
+\[CT_{cp}(q) = w\,L(q) + r\,\bar K = 4\cdot\frac{q^3}{64} + 1\cdot 8\]
+
+Simplificando:
+
+\[CT_{cp}(q) = \underbrace{\frac{q^3}{16}}_{CV}\; +\; \underbrace{8}_{CF}\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-3-output-1.pdf}
+\end{center}
+
+\subsection{Corto plazo: coste marginal y coste
+medio}\label{corto-plazo-coste-marginal-y-coste-medio}
+
+Derivando \(CT_{cp}\):
+
+\[CMg_{cp}(q) = \frac{dCT_{cp}}{dq} = \frac{3q^2}{16}\]
+
+Dividiendo \(CT_{cp}\) entre \(q\):
+
+\[CMe_{cp}(q) = \frac{CT_{cp}}{q} = \frac{q^2}{16} + \frac{8}{q}\]
+
+Mínimo del \(CMe_{cp}\):
+
+\[\frac{dCMe_{cp}}{dq} = \frac{q}{8} - \frac{8}{q^2} = 0 \;\;\Longrightarrow\;\; q^3 = 64 \;\;\Longrightarrow\;\; q = 4\]
+
+Evaluando en \(q = 4\):
+
+\[CMe_{cp}(4) = 1 + 2 = 3 \qquad\qquad CMg_{cp}(4) = \frac{3\cdot 16}{16} = 3\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-4-output-1.pdf}
+\end{center}
+
+\subsection{Largo plazo: condición de
+tangencia}\label{largo-plazo-condiciuxf3n-de-tangencia}
+
+Productos marginales:
+
+\[PMg_L = \tfrac13 L^{-2/3}K^{2/3} \qquad\qquad PMg_K = \tfrac23 L^{1/3}K^{-1/3}\]
+
+Dividiendo:
+
+\[RTS = \frac{PMg_L}{PMg_K} = \frac{K}{2L}\]
+
+Igualando a \(w/r\):
+
+\[\frac{K}{2L} = \frac{4}{1} \;\;\Longrightarrow\;\; K = 8L\]
+
+\subsection{Largo plazo: demandas
+condicionadas}\label{largo-plazo-demandas-condicionadas}
+
+Sustituyendo \(K = 8L\) en la función de producción:
+
+\[q = L^{1/3}(8L)^{2/3} = 4L\]
+
+Despejando:
+
+\[L(q) = \frac{q}{4} \qquad\qquad K(q) = 8\,L(q) = 2q\]
+
+\subsection{Largo plazo: función de
+costes}\label{largo-plazo-funciuxf3n-de-costes}
+
+\[CT_{lp}(q) = w\,L(q) + r\,K(q) = 4\cdot\frac{q}{4} + 1\cdot 2q\]
+
+Simplificando:
+
+\[CT_{lp}(q) = 3q\]
+
+Coste marginal y coste medio:
+
+\[CMg_{lp}(q) = 3 \qquad\qquad CMe_{lp}(q) = 3\]
+
+\subsection{Isocuanta e isocoste
+tangente}\label{isocuanta-e-isocoste-tangente}
+
+Para \(q = 4\):
+
+\[L(4) = 1 \qquad K(4) = 8 \qquad CT_{lp}(4) = 12\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-5-output-1.pdf}
+\end{center}
+
+\subsection{Funciones de costes a corto y a largo
+plazo}\label{funciones-de-costes-a-corto-y-a-largo-plazo}
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-6-output-1.pdf}
+\end{center}
+
+\subsection{Rendimientos a escala}\label{rendimientos-a-escala}
+
+\[f(tL,\,tK) = (tL)^{1/3}(tK)^{2/3} = t^{1/3+2/3}\,L^{1/3}K^{2/3}\]
+
+Por tanto:
+
+\[f(tL,\,tK) = t\,f(L,K)\]
+
+La tecnología presenta rendimientos constantes a escala.
+
+\section{\texorpdfstring{Sustitutivos perfectos:
+\(q = \tfrac13 L + \tfrac23 K\)}{Sustitutivos perfectos: q = \textbackslash tfrac13 L + \textbackslash tfrac23 K}}\label{sustitutivos-perfectos-q-tfrac13-l-tfrac23-k}
+
+\subsection{Corto plazo: demanda condicionada de
+trabajo}\label{corto-plazo-demanda-condicionada-de-trabajo-1}
+
+Con \(\bar K = 8\):
+
+\[q = \tfrac13 L + \tfrac23 \bar K = \tfrac13 L + \tfrac{16}{3}\]
+
+Despejando \(L\):
+
+\[L(q) = \begin{cases} 0 & q \le \tfrac{16}{3} \\[4pt] 3q - 16 & q > \tfrac{16}{3} \end{cases}\]
+
+\subsection{Corto plazo: función de
+costes}\label{corto-plazo-funciuxf3n-de-costes-1}
+
+\[CT_{cp}(q) = w\,L(q) + r\,\bar K = 4\,L(q) + 1\cdot 8\]
+
+Sustituyendo \(L(q)\):
+
+\[CT_{cp}(q) = \begin{cases} 8 & q \le \tfrac{16}{3} \\[4pt] 12q - 56 & q > \tfrac{16}{3} \end{cases}\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-7-output-1.pdf}
+\end{center}
+
+\subsection{Corto plazo: coste marginal y coste
+medio}\label{corto-plazo-coste-marginal-y-coste-medio-1}
+
+Derivando \(CT_{cp}\):
+
+\[CMg_{cp}(q) = \begin{cases} 0 & q < \tfrac{16}{3} \\[4pt] 12 & q > \tfrac{16}{3} \end{cases}\]
+
+Dividiendo \(CT_{cp}\) entre \(q\):
+
+\[CMe_{cp}(q) = \begin{cases} \dfrac{8}{q} & q \le \tfrac{16}{3} \\[8pt] 12 - \dfrac{56}{q} & q > \tfrac{16}{3} \end{cases}\]
+
+Mínimo del \(CMe_{cp}\), en \(q = \tfrac{16}{3}\):
+
+\[CMe_{cp}\left(\tfrac{16}{3}\right) = \frac{8}{16/3} = \frac32\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-8-output-1.pdf}
+\end{center}
+
+\subsection{\texorpdfstring{Largo plazo: comparar \(RTS\) y
+\(w/r\)}{Largo plazo: comparar RTS y w/r}}\label{largo-plazo-comparar-rts-y-wr}
+
+Productos marginales:
+
+\[PMg_L = \tfrac13 \qquad\qquad PMg_K = \tfrac23\]
+
+Dividiendo:
+
+\[RTS = \frac{1/3}{2/3} = \frac12 \qquad\qquad \frac{w}{r} = 4\]
+
+Comparando:
+
+\[RTS < \frac{w}{r} \;\;\Longrightarrow\;\; L = 0\]
+
+\subsection{Largo plazo: demandas
+condicionadas}\label{largo-plazo-demandas-condicionadas-1}
+
+Sustituyendo \(L = 0\) en la función de producción:
+
+\[q = \tfrac23 K\]
+
+Despejando:
+
+\[L(q) = 0 \qquad\qquad K(q) = \tfrac32 q\]
+
+\subsection{Largo plazo: función de
+costes}\label{largo-plazo-funciuxf3n-de-costes-1}
+
+\[CT_{lp}(q) = w\,L(q) + r\,K(q) = 4\cdot 0 + 1\cdot\tfrac32 q\]
+
+Simplificando:
+
+\[CT_{lp}(q) = \tfrac32 q\]
+
+Coste marginal y coste medio:
+
+\[CMg_{lp}(q) = \tfrac32 \qquad\qquad CMe_{lp}(q) = \tfrac32\]
+
+\subsection{Isocuanta e isocoste}\label{isocuanta-e-isocoste}
+
+Para \(q = 4\):
+
+\[L(4) = 0 \qquad K(4) = 6 \qquad CT_{lp}(4) = 6\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-9-output-1.pdf}
+\end{center}
+
+\subsection{Funciones de costes a corto y a largo
+plazo}\label{funciones-de-costes-a-corto-y-a-largo-plazo-1}
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-10-output-1.pdf}
+\end{center}
+
+\subsection{Rendimientos a escala}\label{rendimientos-a-escala-1}
+
+\[f(tL,\,tK) = \tfrac13 (tL) + \tfrac23 (tK) = t\left(\tfrac13 L + \tfrac23 K\right)\]
+
+Por tanto:
+
+\[f(tL,\,tK) = t\,f(L,K)\]
+
+La tecnología presenta rendimientos constantes a escala.
+
+\section{\texorpdfstring{Complementarios perfectos:
+\(q = \min\left\{\tfrac13 L,\ \tfrac23 K\right\}\)}{Complementarios perfectos: q = \textbackslash min\textbackslash left\textbackslash\{\textbackslash tfrac13 L,\textbackslash{} \textbackslash tfrac23 K\textbackslash right\textbackslash\}}}\label{complementarios-perfectos-q-minlefttfrac13-l-tfrac23-kright}
+
+\subsection{Corto plazo: demanda condicionada de
+trabajo}\label{corto-plazo-demanda-condicionada-de-trabajo-2}
+
+Con \(\bar K = 8\):
+
+\[q = \min\left\{\tfrac13 L,\ \tfrac23 \bar K\right\} = \min\left\{\tfrac13 L,\ \tfrac{16}{3}\right\} \;\;\Longrightarrow\;\; q \le \tfrac{16}{3}\]
+
+Despejando \(L\):
+
+\[L(q) = 3q \qquad \left(q \le \tfrac{16}{3}\right)\]
+
+\subsection{Corto plazo: función de
+costes}\label{corto-plazo-funciuxf3n-de-costes-2}
+
+\[CT_{cp}(q) = w\,L(q) + r\,\bar K = 4\cdot 3q + 1\cdot 8\]
+
+Simplificando:
+
+\[CT_{cp}(q) = \underbrace{12q}_{CV}\; +\; \underbrace{8}_{CF} \qquad \left(q \le \tfrac{16}{3}\right)\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-11-output-1.pdf}
+\end{center}
+
+\subsection{Corto plazo: coste marginal y coste
+medio}\label{corto-plazo-coste-marginal-y-coste-medio-2}
+
+Derivando \(CT_{cp}\):
+
+\[CMg_{cp}(q) = 12 \qquad \left(q \le \tfrac{16}{3}\right)\]
+
+Dividiendo \(CT_{cp}\) entre \(q\):
+
+\[CMe_{cp}(q) = 12 + \frac{8}{q} \qquad \left(q \le \tfrac{16}{3}\right)\]
+
+Mínimo del \(CMe_{cp}\), en \(q = \tfrac{16}{3}\):
+
+\[CMe_{cp}\left(\tfrac{16}{3}\right) = 12 + \frac{8}{16/3} = \frac{27}{2}\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-12-output-1.pdf}
+\end{center}
+
+\subsection{Largo plazo: demandas
+condicionadas}\label{largo-plazo-demandas-condicionadas-2}
+
+Sin desperdiciar ningún factor:
+
+\[\tfrac13 L = \tfrac23 K = q\]
+
+Despejando:
+
+\[L(q) = 3q \qquad\qquad K(q) = \tfrac32 q\]
+
+\subsection{Largo plazo: función de
+costes}\label{largo-plazo-funciuxf3n-de-costes-2}
+
+\[CT_{lp}(q) = w\,L(q) + r\,K(q) = 4\cdot 3q + 1\cdot \tfrac32 q\]
+
+Simplificando:
+
+\[CT_{lp}(q) = \tfrac{27}{2}\, q\]
+
+Coste marginal y coste medio:
+
+\[CMg_{lp}(q) = \tfrac{27}{2} \qquad\qquad CMe_{lp}(q) = \tfrac{27}{2}\]
+
+\subsection{Isocuanta e isocoste}\label{isocuanta-e-isocoste-1}
+
+Para \(q = 2\):
+
+\[L(2) = 6 \qquad K(2) = 3 \qquad CT_{lp}(2) = 27\]
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-13-output-1.pdf}
+\end{center}
+
+\subsection{Funciones de costes a corto y a largo
+plazo}\label{funciones-de-costes-a-corto-y-a-largo-plazo-2}
+
+\begin{center}
+\includegraphics{costes_files/figure-pdf/cell-14-output-1.pdf}
+\end{center}
+
+\subsection{Rendimientos a escala}\label{rendimientos-a-escala-2}
+
+\[f(tL,\,tK) = \min\left\{\tfrac13 tL,\ \tfrac23 tK\right\} = t\,\min\left\{\tfrac13 L,\ \tfrac23 K\right\}\]
+
+Por tanto:
+
+\[f(tL,\,tK) = t\,f(L,K)\]
+
+La tecnología presenta rendimientos constantes a escala.
+
+
+
+
+\end{document}
