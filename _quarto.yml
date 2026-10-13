@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Microeconomía Intermedia"
+  subtitle: "Paso a paso"
+  author: "Eduardo Zambrano"
+  date: today
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - costes.qmd
+
+execute:
+  echo: false
+
+format:
+  html:
+    lang: es
+    theme:
+      - flatly
+      - custom.scss
+    toc-depth: 3
+    number-sections: true
+    fontsize: 1.05em
+    linestretch: 1.4
+    mainfont: "Palatino, Georgia, serif"
+  pdf:
+    documentclass: report
+    toc-title: "Tabla de Contenidos"
+    papersize: a4
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1.25in
+      - right=1.25in
+    fontsize: 11pt
+    mainfont: "TeX Gyre Pagella"
+    sansfont: "TeX Gyre Heros"
+    linestretch: 1.15
+    number-sections: true
+    colorlinks: true
+    linkcolor: ForestGreen
+    urlcolor: ForestGreen
+    include-in-header:
+      text: |
+        \usepackage{xcolor}
+        \usepackage{titlesec}
+        \AtBeginDocument{\renewcommand{\chaptername}{Capítulo}\renewcommand{\figurename}{Figura}}
+        \titleformat{\section}{\Large\bfseries\sffamily}{\thesection}{1em}{}
+        \titleformat{\subsection}{\large\bfseries\sffamily}{\thesubsection}{1em}{}
+        \titlespacing*{\section}{0pt}{1.5em}{0.75em}
+        \titlespacing*{\subsection}{0pt}{1.25em}{0.5em}
