@@ -153,7 +153,7 @@ ejes_xy(ax, 42, 6)
 plt.show()
 ```
 
-## Complementarios perfectos: $u = \min\left\{\tfrac13 x,\ \tfrac23 y\right\}$
+## Complementos perfectos: $u = \min\left\{\tfrac13 x,\ \tfrac23 y\right\}$
 
 ### Condición de proporciones fijas
 

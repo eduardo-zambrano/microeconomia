@@ -352,7 +352,7 @@ $$f(tL,\,tK) = t\,f(L,K)$$
 
 La tecnología presenta rendimientos constantes a escala.
 
-## Complementarios perfectos: $q = \min\left\{\tfrac13 L,\ \tfrac23 K\right\}$
+## Complementos perfectos: $q = \min\left\{\tfrac13 L,\ \tfrac23 K\right\}$
 
 ### Corto plazo: demanda condicionada de trabajo
 

@@ -11,6 +11,7 @@ book:
   chapters:
     - index.qmd
     - consumidor.qmd
+    - demanda.qmd
     - costes.qmd
 
 execute:
