@@ -30,6 +30,12 @@ def punto(ax, x, y):
     ax.plot([0, x], [y, y], color=GRIS, lw=1, ls=":")
     ax.plot(x, y, "o", color="black", ms=8, zorder=5, clip_on=False)
 
+def corte(ax, y0, y1, color="black", lw=1.1):
+    # tramo del eje vertical en zigzag entre y0 e y1 (eje cortado)
+    w = 0.02 * ax.get_xlim()[1]
+    ax.plot([0, -w, w, -w, w, 0], np.linspace(y0, y1, 6), color=color, lw=lw,
+            clip_on=False, zorder=4, solid_joinstyle="miter")
+
 def efecto(ax, x1, x2, texto):
     # flecha bajo el eje horizontal, entre x1 y x2
     t = ax.get_xaxis_transform()
@@ -143,14 +149,20 @@ $$y = \begin{cases} \dfrac{36}{p_y} & p_y < 8 \\[6pt] 0 & p_y > 8 \end{cases}$$
 ```{python}
 #| fig-align: center
 fig, (a1, a2) = plt.subplots(1, 2, figsize=DOBLE)
+# eje vertical cortado: p_x de 0 a 1 en escala normal; p_x = 4 por encima del corte
+P4, Z0, Z1, TOP = 1.4, 1.08, 1.2, 1.6
+ejes(a1, r"$x$", r"$p_x$", 160, TOP, [0, 72, 144], [0, 0.5, 1, P4])
+a1.set_yticklabels(["0", r"$\frac{1}{2}$", "1", "4"])
+a1.spines["left"].set_visible(False)
+a1.plot([0, 0], [0, 0.5], color="black", lw=1.1, clip_on=False, zorder=3)
 x = np.linspace(72, 160, 200)
-a1.plot([0, 0, 72], [6, 0.5, 0.5], color=AZUL, clip_on=False, zorder=4)
+a1.plot([0, 0, 72], [Z0, 0.5, 0.5], color=AZUL, clip_on=False, zorder=4)
+corte(a1, Z0, Z1, color=AZUL, lw=2.4)
+a1.plot([0, 0], [Z1, TOP], color=AZUL, clip_on=False, zorder=4)
 a1.plot(x, 36 / x, color=AZUL)
-punto(a1, 0, 4)
-a1.text(6, 5.0, r"$x = 0$", color=AZUL)
-a1.text(96, 0.9, r"$x = \frac{36}{p_x}$", color=AZUL)
-ejes(a1, r"$x$", r"$p_x$", 160, 6, [0, 72, 144], [0, 0.5, 2, 4, 6])
-a1.set_yticklabels(["0", r"$\frac{1}{2}$", "2", "4", "6"])
+punto(a1, 0, P4)
+a1.text(8, 0.8, r"$x = 0$", color=AZUL)
+a1.text(108, 0.48, r"$x = \frac{36}{p_x}$", color=AZUL)
 y = np.linspace(4.5, 60, 300)
 a2.plot([0, 0, 4.5], [12, 8, 8], color=AZUL, clip_on=False, zorder=4)
 a2.plot(y, 36 / y, color=AZUL)
@@ -249,7 +261,7 @@ $$x_B = \frac{36}{3\cdot \tfrac14} = 48 \qquad\qquad y_B = \frac{2\cdot 36}{3\cd
 
 ### Cesta compensada $A'$
 
-Tangencia con el precio final:
+Tangencia de la curva de indiferencia que pasa por $A$ con los precios relativos finales:
 
 $$\frac{y}{2x} = \frac{1/4}{1} \;\;\Longrightarrow\;\; y = \tfrac12 x$$
 
@@ -405,7 +417,6 @@ punto(ax, 8, 4); punto(ax, 48, 24)
 ax.text(10, 5.2, r"$A = A'$"); ax.text(50, 25.2, r"$B$")
 ax.text(136, 5.0, r"$U_1$", color=AZUL); ax.text(136, 25.0, r"$U_2$", color=AZUL)
 ax.text(10, 29, r"$RP_1$", color=ROJO); ax.text(25, 0.8, r"$RP'$", color=ROJO); ax.text(96, 13.5, r"$RP_2$", color=ROJO)
-efecto(ax, 8, 48, "ER")
-ax.text(8, -0.22, "ES = 0", transform=ax.get_xaxis_transform(), ha="center", va="top", color=GRIS, fontsize=12)
+efecto(ax, 8, 48, "ET = ER  (ES = 0)")
 plt.show()
 ```
