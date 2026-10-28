@@ -2,7 +2,7 @@
 
 Estas notas acompañan a la asignatura de [Microeconomía Intermedia](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=22014&scaca=2026-27#) de la [Universidad de Alicante](https://www.ua.es/).
 
-Su propósito es que tengas a mano, resueltos de principio a fin, los cálculos que aparecen una y otra vez en la asignatura. Cada capítulo toma ejemplos concretos y los desarrolla paso a paso para que puedas seguir la mecánica con lápiz y papel y comprobar tus propios resultados.
+Su propósito es que tengas a mano, resueltos de principio a fin, los cálculos que aparecen una y otra vez en la asignatura. Los capítulos 1 a 3 toman ejemplos concretos y los desarrollan paso a paso para que puedas seguir la mecánica con lápiz y papel y comprobar tus propios resultados. El capítulo 4 es distinto: reúne los vídeos de una clase de sustitución del tema 4.
 
 Las notas se centran en el *cómo* y no en el *porqué*: la intuición económica y la interpretación de los resultados se trabajan en clase y en el manual. Lo que encontrarás aquí son las cuentas.
 
