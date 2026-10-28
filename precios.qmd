@@ -1,0 +1,17 @@
+# Clase en vídeo: estrategias de precios
+
+Este capítulo es distinto de los anteriores. No es un paso a paso con cuentas resueltas, sino una clase de sustitución: la sesión del tema 4 del grupo 3 del jueves 29 de octubre, que no pude impartir en persona, grabada en vídeo. Son cuatro vídeos que recorren las diapositivas del tema con la explicación que habría dado en el aula.
+
+## Lo que ya hemos visto
+
+- **Capítulo 9** (lectura de repaso): fuentes del poder de mercado, poder de mercado e ingreso marginal, maximización del beneficio con poder de mercado, y ganadores y perdedores del poder de mercado (apartados 9.1, 9.2, 9.3 y 9.5).
+- **Capítulo 10**, en la clase anterior: introducción a las estrategias de precios (10.1), discriminación perfecta o de primer grado (10.2) y segmentación o discriminación de tercer grado (10.3), hasta el precio que se fija a cada segmento.
+
+## Los vídeos
+
+Duran entre 8 y 14 minutos (47 en total) y conviene verlos en orden. Tienen subtítulos en español. Cuando un vídeo proponga un ejercicio, páralo e inténtalo antes de seguir.
+
+1. [Repaso y maneras de segmentar clientes](https://youtu.be/hxzoavnWZTo) (11 min). Repaso del apartado 10.1 y del mapa de estrategias de la figura 10.1. Final del apartado 10.3: cómo identifican las empresas cada segmento (características de los clientes, compras anteriores, localización y momento de compra).
+2. [Discriminación de precios indirecta](https://youtu.be/sBnpKUom5TU) (14 min). Apartado 10.4: descuentos por cantidad, compatibilidad de incentivos, versiones (el ejemplo de Toyota) y cupones.
+3. [Venta conjunta de bienes](https://youtu.be/ibUMu45uNFk) (8 min). Apartado 10.5: cuándo conviene vender en paquete; demandas con correlación positiva y con correlación negativa.
+4. [Precios por bloques y tarifas de dos tramos](https://youtu.be/jMNstPcVad8) (13 min). Apartado 10.6, con las figuras 10.8 y 10.9, y las conclusiones del capítulo (10.7).
